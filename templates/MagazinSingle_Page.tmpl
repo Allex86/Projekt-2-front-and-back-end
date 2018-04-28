@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%include 'head.tmpl'%}
+    <link rel="stylesheet" href="/css/style_carousel.css">
+    <script defer src="/js/scripts_carousel.js"></script>
+</head>
+
+<body>
+    <header>
+        {%include 'header.tmpl'%}
+    </header>
+    {%include 'header_nav.tmpl'%}
+    {%include 'banner1.tmpl'%}
+    <main>
+        <section class="SP_big_picture">
+            
+            <div id="carousel" class="carousel"><!-- big_picture -->
+                <!-- <a href="#" class="arrow_left">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a> <img src="/img/SP_big_picture.jpg" alt="big_picture">
+                <a href="#" class="arro_right">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a> -->
+
+                <button class="arrow prev arrow_left">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </button>
+                <button class="arrow next arro_right">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </button>
+                <div class="gallery">
+                    <ul class="images">
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <!--  -->
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                        <li><img src="/img/SP_big_picture.jpg"></li>
+                    </ul>
+                </div>
+                
+            </div>
+
+        </section>
+        <section class="description container">
+            <div class="description_box">
+                <h4>WOMEN COLLECTION</h4>
+                <div class="horizontal_red_rectangle"></div>
+                <h3>Moschino Cheap And Chic</h3>
+                <div class="description_box_text">
+                    <p>Compellingly actualize fully researched processes before proactive outsourcing. Progressively syndicate collaborative architectures before cutting-edge services. Completely visualize parallel core competencies rather than exceptional portals.</p>
+                </div>
+                <div class="description_box_information">
+                    <div class="description_box_materia">
+                        <p>MATERIAL:<span>COTTON</span></p>
+                    </div>
+                    <div class="description_box_designer">
+                        <p>DESIGNER:<span>BINBURHAN</span></p>
+                    </div>
+                </div>
+                <div class="description_box_cost">
+                    <p class="product_price">$<span>561</span></p>
+                </div>
+                <div class="description_box_choose">
+                    <div class="description_box_choose_mini">
+                        <p>CHOOSE COLOR</p>
+                        <div class="description_box_mini">
+                            <div class="box_mini_color"></div>
+                            <p>Red</p><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="description_box_choose_mini">
+                        <p>CHOOSE SIZE</p>
+                        <div class="description_box_mini">
+                            <p>XXL</p><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="description_box_choose_mini">
+                        <p>QUANTITY</p>
+                        <input type="text" placeholder="2">
+                    </div>
+                </div>
+                <div class="description_box_button">
+                    <button><img src="/img/Add_to_Cart_red.png" alt="Add to cart"></button>
+                </div>
+            </div>
+        </section>
+        <section class="may_like container">
+            <h3>you may like also</h3>
+            <div class="may_like_content">
+                <div class="content_box_two"><a href="MagazinSingle_Page" target="_blank"></a>
+                    <div class="img_in_box_two"><img src="/img/SP_small_picture1.jpg" alt="BLAZE LEGGINGS"></div>
+                    <p class="product_name">BLAZE LEGGINGS</p>
+                    <div class="stars"></div>
+                    <p class="price">$<span>52.00</span></p>
+                </div>
+                <div class="content_box_two"><a href="MagazinSingle_Page" target="_blank"></a>
+                    <div class="img_in_box_two"><img src="/img/SP_small_picture2.jpg" alt="ALEXA SWEATER"></div>
+                    <p class="product_name">ALEXA SWEATER</p>
+                    <div class="stars"></div>
+                    <p class="price">$<span>52.00</span></p>
+                </div>
+                <div class="content_box_two"><a href="MagazinSingle_Page" target="_blank"></a>
+                    <div class="img_in_box_two"><img src="/img/SP_small_picture3.jpg" alt="AGNES TOP"></div>
+                    <p class="product_name">AGNES TOP</p>
+                    <div class="stars"></div>
+                    <p class="price">$<span>52.00</span></p>
+                </div>
+                <div class="content_box_two"><a href="MagazinSingle_Page" target="_blank"></a>
+                    <div class="img_in_box_two"><img src="/img/SP_small_picture4.jpg" alt="SYLVA SWEATER"></div>
+                    <p class="product_name">SYLVA SWEATER</p>
+                    <div class="stars"></div>
+                    <p class="price">$<span>52.00</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    {%include 'pre-footer.tmpl'%}
+    <footer>
+        {%include 'footer.tmpl'%}
+    </footer>
+</body>
+
+</html>

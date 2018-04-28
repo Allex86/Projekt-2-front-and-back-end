@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>   
+    {%include 'head.tmpl'%}
+</head>
+
+<body>
+    <header>
+        {%include 'header.tmpl'%}
+    </header>
+    {%include 'header_nav.tmpl'%}
+    <section class="banner">
+        <div class="container">
+            <div class="banner_img"><img src="/img/Index_banner.jpg" alt="banner">
+                <div class="banner_text">
+                    <h2>THE BRAND</h2>
+                    <p>OF LUXERIOUS <span>FASHION</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="content">
+        <section class="stake_one container">
+            <div class="cont_img"><img src="/img/Index_content1.jpg" alt="For men">
+                <div class="cont_text">
+                    <p>HOT DEAL
+                        <br><a href="/MagazinProduct" target="_blank">FOR MEN</a></p>
+                </div>
+            </div>
+            <div class="cont_img"><img src="/img/Index_content2.jpg" alt="ACCESORIES">
+                <div class="cont_text">
+                    <p>LUXIROUS &amp; trendy
+                        <br><a href="/MagazinProduct" target="_blank">ACCESORIES</a></p>
+                </div>
+            </div>
+            <div class="cont_img"><img src="/img/Index_content3.jpg" alt="For women">
+                <div class="cont_text">
+                    <p>30% offer
+                        <br><a href="/MagazinProduct" target="_blank">WOMEN</a></p>
+                </div>
+            </div>
+            <div class="cont_img"><img src="/img/Index_content4.jpg" alt="For kids">
+                <div class="cont_text">
+                    <p>new arrivals
+                        <br><a href="/MagazinProduct" target="_blank">FOR KIDS</a></p>
+                </div>
+            </div>
+        </section>
+        <section class="stake_two">
+            <div class="stake_two_title">
+                <h3>Fetured Items</h3>
+                <p>Shop for items based on what we featured in this week</p>
+            </div>
+            <div class="stake_two_content">
+            {% for good in goods %}
+                <div class="content_box_two"><a href="/MagazinSingle_Page" target="_blank"></a>
+                    <div class="img_in_box_two img_in_box_two_hover"><img src="{{good.good_foto}}" alt="{{good.good_name}}"></div>
+                    <div class="hover_button_block1">
+                        <button data-id="{{good.id}}" class="add_to_cart"><img src="/img/Add_to_Cart.png" alt="Add to Cart"></button>
+                    </div>
+                    <p class="product_name">{{good.good_name}}</p>
+                    <p class="product_price">$<span>{{good.good_price}}</span></p>
+                </div>
+            {% endfor %}
+            </div>
+        </section>
+        <div class="button"><a class="Browse_All" href="/MagazinProduct" target="_blank">Browse All Product <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
+        <section class="stake_three">
+            <div class="stake_three_content container">
+                <div class="stake_three_content_img"><img src="/img/Index_banner2.jpg" alt="FOR WOMEN">
+                    <div class="stake_three_content_text">
+                        <h2>30% <span>OFFER</span></h2>
+                        <p>FOR WOMEN</p>
+                    </div>
+                </div>
+                <div class="content_after_img">
+                    <article class="content_box_three"><img src="/img/forma-3-1.png" alt="Free Delivery">
+                        <div class="text_in_box_three">
+                            <h4>Free Delivery</h4>
+                            <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+                        </div>
+                    </article>
+                    <article class="content_box_three"><img src="/img/forma-3-2.png" alt="Sales &amp; discounts">
+                        <div class="text_in_box_three">
+                            <h4>Sales &amp; discounts</h4>
+                            <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+                        </div>
+                    </article>
+                    <article class="content_box_three"><img src="/img/forma-3-3.png" alt="Quality assurance">
+                        <div class="text_in_box_three">
+                            <h4>Quality assurance</h4>
+                            <p>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+    {%include 'pre-footer.tmpl'%}
+    <footer>
+        {%include 'footer.tmpl'%}
+    </footer>
+</body>
+
+</html>

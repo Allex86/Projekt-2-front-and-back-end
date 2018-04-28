@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%include 'head.tmpl'%}
+</head>
+
+<body>
+    <header>
+        {%include 'header.tmpl'%}
+    </header>
+    {%include 'header_nav.tmpl'%}
+    {%include 'banner1.tmpl'%}
+    <main>
+        <section class="shopping_cart container">
+        {% if isAuth == true %}
+            <table class="table">
+                <tr>
+                    <th class="left_column">Product Details</th>
+                    <th>unite Price</th>
+                    <th>Quantity</th>
+                    <th>shipping</th>
+                    <th>Subtotal</th>
+                    <th>ACTION</th>
+                </tr>
+                {% for good in basket %}
+                <tr class="product_by_id-{{good.id}}">
+                    <td class="left_column"><img src="{{good.good_foto}}"> <span>{{good.good_name}}</span>
+                        <p>Color: <span>Red</span></p>
+                        <p>Size: <span>Xll</span></p>
+                    </td>
+                    <td class="all_other_column">{{good.good_price}}</td>
+                    <td class="all_other_column">
+                        <!-- <input type="text" placeholder="2"> -->
+                        <p>{{good.product_number}}</p>
+                    </td>
+                    <td class="all_other_column">FREE</td>
+                    <td class="all_other_column"><!-- $300 -->пока что нет</td>
+                    <td class="all_other_column">
+                        <!-- <a href="#">
+                            <img src="/img/close.png">
+                        </a> -->
+                        <button data-id="{{good.id}}" class="remove_product" style="background:none; border:none;">
+                            <img src="/img/close.png">
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="shopping_cart_button">
+                <!-- <a href="#" class="button_clear button_clear_all">
+                    <p>CLEAR SHOPPING CART</p>
+                </a> -->
+                <button class="button_clear button_clear_all button2" style="margin: 0;">CLEAR SHOPPING CART</button>
+                <a href="/MagazinProduct" class="button_continue">
+                    <p>CONTINUE SHOPPING</p>
+                </a>
+            </div>
+        </section>
+        <section class="order_form container">
+            <div class="shipping_adress">
+                <h3>Shipping Adress</h3>
+                <div class="shipping_adress_country">
+                    <input type="text" name="Bangladesh" placeholder="Bangladesh"> <i class="fa fa-sort-desc" aria-hidden="true"></i></div>
+                <input type="text" name="State" placeholder="State">
+                <input type="text" name="Postcode / Zip" placeholder="Postcode / Zip">
+                <!-- <a href="#" class="button_in_order_form">
+                    <p>get a quote</p>
+                </a> -->
+                <button class="button_in_order_form button2" style="margin: 20px 0;">get a quote</button>
+            </div>
+            <div class="coupon_discount">
+                <h3>coupon discount</h3>
+                <p>Enter your coupon code if you have one</p>
+                <input type="text" name="State" placeholder="State">
+                <!-- <a href="#" class="button_in_order_form">
+                    <p>Apply coupon</p>
+                </a> -->
+                <button class="button_in_order_form button2" style="margin: 20px 0;">Apply coupon</button>
+            </div>
+            <div class="grand_total">
+                <p>Sub total &nbsp;&nbsp;&nbsp;&nbsp; $900</p>
+                <h3>GRAND TOTAL &nbsp;&nbsp;&nbsp;&nbsp; <span>$900</span></h3>
+                <!-- <a href="#" class="button_in_order_form">
+                    <p>proceed to checkout</p>
+                </a> -->
+                <button class="button_in_order_form" style="margin: 0;">proceed to checkout</button>
+            </div>
+        {% else %}
+            <h2>Не расстраивай котика! Залогинься!</h2>
+            <img class="kote" src="/img/404/404.jpg" alt="Котик">
+            <style>
+                h2, img {
+                    display: block;
+                    margin: 0 auto;
+                    font-family: sans-serif;
+                    text-align: center;
+                    }
+                .kote {
+                    margin: 15px auto;
+                    }
+                h2 {
+                    color: #F16D7F;
+                    font-size: 100px;
+                    }
+            </style>
+        {% endif %}
+        </section>
+    </main>
+    {%include 'pre-footer.tmpl'%}
+    <footer>
+        {%include 'footer.tmpl'%}
+    </footer>
+</body>
+
+</html>

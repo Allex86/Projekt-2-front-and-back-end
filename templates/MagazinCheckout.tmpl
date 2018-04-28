@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%include 'head.tmpl'%}
+</head>
+
+<body>
+    <header>
+        {%include 'header.tmpl'%}
+    </header>
+    {%include 'header_nav.tmpl'%}
+    {%include 'banner1.tmpl'%}
+    <main>
+        <section class="big_form_accordion container">
+            <div class="big_form_shipping_adress big_form_border_botton">
+                <h3 class="clickable_block">00. Registrate Form</h3>
+                <form class="block_after_click all_other_column" action="/Account/Registrate" method="post">
+
+                    <label class="marg"><!-- Имя пользователя -->User name</label>
+                    <input class="marg" type="text" pattern="[A-Za-zА-Яа-яЁё]+" name="user_name" placeholder="Enter name" required><!-- Введите имя -->
+
+                    <label class="marg"><!-- Логин -->Login</label>
+                    <input class="marg" type="text" name="login" placeholder="Enter login" required><!-- Введите логин -->
+
+                    <label class="marg"><!-- Пароль -->Password</label>
+                    <input class="marg" type="text" name="password" placeholder="Enter password" required><!-- Введите пароль -->
+
+                    <!-- <label class="marg">Контактный телефон в формате +7(000)000-0000</label>
+                    <input class="marg" type="tel" pattern="\+\d[\s\(-]\d{3}[\s\)-]\d{3}[\s-]\d{4}" name="Tel" placeholder="+7(000)000-0000" required> -->
+
+                    <!-- <label class="marg">Выберите страну</label>
+                    <select class="marg country_selection" id="country_selection" name="country_selection"></select> -->
+
+                    <!-- <label class="marg">Адрес электронной почты</label>
+                    <input class="marg" type="email" pattern="\S+@[a-z]+.[a-z]+" placeholder="Enter Your Email" value="" required> -->
+
+                    <!-- <label class="marg">Коментарий</label>
+                    <textarea class="marg" name="textarea" placeholder="Текст произвольный" cols="30" rows="10" autofocus></textarea> -->
+
+                    <button class="button_subscribe marg">Subscribe</button>
+                </form>
+                <style>
+                    .marg {
+                      display: block;
+                      //width: 50%;
+                      min-width: 340px;
+                      margin: 15px auto;
+                    }
+                    .button_subscribe {
+                        border: none;
+                        -webkit-border-radius: 0;
+                                border-radius: 0;
+                    }
+                </style>
+            </div>
+            <div class="big_form_shipping_adress big_form_border_botton">
+                
+                <h3 class="clickable_block">01. Shipping Adress</h3>
+                <div class="big_form_flex_container block_after_click">
+                    <div class="continue continue_box">
+                        <h4>Check as a guest or register</h4>
+                        <p>Register with us for future convenience</p>
+                        <div class="continue_radio_button">
+                            <div>
+                                <input type="radio" id="radio1" name="radio">
+                                <label for="radio1">checkout as guest</label>
+                            </div>
+                            <br>
+                            <br>
+                            <div>
+                                <input type="radio" id="radio2" name="radio">
+                                <label for="radio2">register</label>
+                            </div>
+                        </div>
+                        <h4>register and save time!</h4>
+                        <p>Register with us for future convenience</p>
+                        <br>
+                        <br>
+                        <p><i class="fa fa-angle-double-right" aria-hidden="true"></i>Fast and easy checkout</p>
+                        <p><i class="fa fa-angle-double-right" aria-hidden="true"></i>Easy access to your order history and status</p>
+                        <!-- <a href="#">
+                            <p>Continue</p>
+                        </a> -->
+                        <button class=" button2" style="width: 185px; margin: 0;">Continue</button>
+                    </div>
+                    <div class="log_in continue_box">
+                        <h4>Already registed?</h4>
+                        <p>Please log in below</p>
+                        <h5>EMAIL ADDRESS <span>*</span></h5>
+                        <input type="email" name="email adress" pattern="\S+@[a-z]+.[a-z]+">
+                        <h5>PASSWORD <span>*</span></h5>
+                        <input type="password" name="password">
+                        <h5><span>* Required Fileds</span></h5>
+                        <a class="forgot_password" href="#">Forgot Password ?</a>
+                        <!-- <a href="#">
+                            <p>Log in</p>
+                        </a> style="margin: 0;"-->
+                        <button class=" button2" style="width: 185px; margin: 0;">Log in</button>
+                    </div>
+                </div>
+            </div>
+            <div class="big_form_billing_informayion big_form_border_botton">
+                <h3 class="clickable_block">02. BILLING INFORMATION</h3>
+                <div class="block_after_click">
+                    <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat soluta ea voluptatem adipisci iure ipsa, nulla est aspernatur cum similique porro, vitae deserunt, suscipit voluptas beatae quis, atque inventore natus.</p>
+                </div>
+            </div>
+            <div class="big_form_shipping_information big_form_border_botton">
+                <h3 class="clickable_block">03. SHIPPING INFORMATION</h3>
+                <div class="block_after_click">
+                    <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat soluta ea voluptatem adipisci iure ipsa, nulla est aspernatur cum similique porro, vitae deserunt, suscipit voluptas beatae quis, atque inventore natus.</p>
+                </div>
+            </div>
+            <div class="big_form_shipping_method big_form_border_botton">
+                <h3 class="clickable_block">04. SHIPPING METHOD</h3>
+                <div class="block_after_click">
+                    <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat soluta ea voluptatem adipisci iure ipsa, nulla est aspernatur cum similique porro, vitae deserunt, suscipit voluptas beatae quis, atque inventore natus.</p>
+                </div>
+            </div>
+            <div class="big_form_payment_method big_form_border_botton">
+                <h3 class="clickable_block">05. PAYMENT METHOD</h3>
+                <div class="block_after_click">
+                    <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat soluta ea voluptatem adipisci iure ipsa, nulla est aspernatur cum similique porro, vitae deserunt, suscipit voluptas beatae quis, atque inventore natus.</p>
+                </div>
+            </div>
+            <div class="big_form_order_review big_form_border_botton">
+                <h3 class="clickable_block">06. ORDER REVIEW</h3>
+                <div class="block_after_click">
+                    <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat soluta ea voluptatem adipisci iure ipsa, nulla est aspernatur cum similique porro, vitae deserunt, suscipit voluptas beatae quis, atque inventore natus.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    {%include 'pre-footer.tmpl'%}
+    <footer>
+        {%include 'footer.tmpl'%}
+    </footer>
+</body>
+
+</html>

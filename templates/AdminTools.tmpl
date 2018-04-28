@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%include 'head.tmpl'%}
+    <script defer src="/js/admi_tools.js"></script>
+</head>
+
+<body>
+    <header>
+        {%include 'header.tmpl'%}
+    </header>
+    {%include 'header_nav.tmpl'%}
+    {%include 'banner1.tmpl'%}
+    <main>
+        <section class="container">
+        {% if isAdmin == true %}
+            <button  class="admin_tool_add_product edit_product_from_database">Add product</button>
+
+            <div class="edit_product_bloc all_other_column" style="width: 80%;
+margin: 0 auto;">
+                <form method="post" action="/AdminTools/AdminToolsAddProduct" enctype="multipart/form-data">
+                    <label for="good_name">good_name</label><br>
+                    <input type="text" name="good_name" required value=""><br><br>
+
+                    <label for="good_price">good_price</label><br>
+                    <input type="text" name="good_price" required value=""><br><br>
+
+
+
+                    <label for="good_id_category">good_id_category</label><br>
+                    <select ize="5" name="good_id_category" required>
+                        <option disabled selected="selected">Выберите категорию</option>
+                        {% for category_value in goods_category %}
+                        <option value="{{category_value.value}}">{{category_value.value}}</option>
+                        {% endfor %}
+                    </select><br><br>
+
+
+
+                    <label for="good_status">good_status</label><br>
+                    <input type="text" name="good_status" required value=""><br><br>
+
+                    <label for="good_foto">good_foto</label><br>
+                    <!-- <input type="hidden" name="MAX_FILE_SIZE" value="5242880"/> -->
+                    <input type="file" name="good_foto" required/>
+                    <br><br>
+
+                    <label for="description">description</label><br>
+                    <input type="text" name="description" required value=""><br><br>
+
+                    <label for="good_short_description">good_short_description</label><br>
+                    <input type="text" name="good_short_description" required value=""><br><br>
+
+                    <button data-id="" 
+                        class="submit_aply" 
+                        type="submit" 
+                        style="margin: 0 auto;">Add Product</button>
+                </form>
+            </div>
+
+            <table class="table">
+                <tr>
+                    <th class="left_column">Product Details</th>
+                    <!-- <th>unite Price</th> -->
+                   <!--  <th>Quantity</th> -->
+                    <!-- <th>shipping</th> -->
+                    <th>Subtotal</th><!--  -->
+                    <th>ACTION</th><!--  -->
+                </tr>
+                {% for good in goods_admin %}
+                <tr class="product_by_id-{{good.id}}">
+                    <td class="left_column">
+                        <img src="{{good.good_foto}}">
+                        <span>{{good.good_name}}</span>
+                        <p>Good category : <span>{{good.good_id_category}}</span></p>
+                        <p>Good status : <span>{{good.good_status}}</span></p>
+                        <p>Good price : <span>{{good.good_price}}</span></p>
+                        <!-- <p>Color: <span>Red</span></p> -->
+                        <!-- <p>Size: <span>Xll</span></p> -->
+                    </td>
+                    <!-- <td class="all_other_column">{{good.good_price}}</td> -->
+                    <!-- <td class="all_other_column">
+                        <input type="text" placeholder="2">
+                        <p>{{good.product_number}}</p>
+                    </td> -->
+                    <!-- <td class="all_other_column">FREE</td> -->
+                    <!-- <td class="all_other_column"> $300 </td>-->
+                    <td class="all_other_column">
+                        <button data-id="{{good.id}}" class="edit_product_from_database">Edit a product from the database</button>
+                        <div class="edit_product_bloc">
+                            <form method="post" action="/AdminTools/AdminToolsEditProduct?product_id={{good.id}}" enctype="multipart/form-data">
+                                <label for="good_name">good_name</label><br>
+                                <input type="text" name="good_name" required value="{{good.good_name}}"><br><br>
+
+                                <label for="good_price">good_price</label><br>
+                                <input type="text" name="good_price" required value="{{good.good_price}}"><br><br>
+
+
+
+                                <!-- <label for="good_id_category">good_id_category</label><br>
+                                <input type="text" name="good_id_category" required value="{{good.good_id_category}}"><br><br> -->
+
+                                <label for="good_id_category">good_id_category</label><br>
+                                <select ize="5" name="good_id_category" required>
+                                    <option value="{{good.good_id_category}}">{{good.good_id_category}}</option>
+                                    {% for category_value in goods_category %}
+                                    <option value="{{category_value.value}}">{{category_value.value}}</option>
+                                    {% endfor %}
+                                </select><br><br>
+
+
+
+                                <label for="good_status">good_status</label><br>
+                                <input type="text" name="good_status" required value="{{good.good_status}}"><br><br>
+
+                                
+                                <!-- <input type="hidden" name="MAX_FILE_SIZE" value="5242880"/> -->
+                                <!-- <input type="text" name="good_foto_text" required value="{{good.good_foto}}"> -->
+
+                                <label for="good_foto">good_foto</label><br>
+                                <input type="hidden" name="good_foto_hidden" value="{{good.good_foto}}"/>
+                                <input type="file" name="good_foto"/>
+                                <br><br>
+
+                                <label for="description">description</label><br>
+                                <input type="text" name="description" required value="{{good.description}}"><br><br>
+
+                                <label for="good_short_description">good_short_description</label><br>
+                                <input type="text" name="good_short_description" required value="{{good.good_short_description}}"><br><br>
+
+                                <button data-id="{{good.id}}" 
+                                    class="submit_aply" 
+                                    type="submit" 
+                                    style="margin: 20px auto;"
+                                    >Aply</button>
+                            </form>
+                        </div>
+                    </td>
+                    <td class="all_other_column">
+                        <button class="edit_product_from_database">Remove a product from the database</button>
+                        <div class="edit_product_bloc">
+                            <p>Are you sure?</p>
+                            <button data-id="{{good.id}}"
+                            class="remove_product_from_database submit_aply"
+                            style="margin: 20px auto;"
+                            >Sure!</button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <h2 style="color: #F16D7F; font-size: 100px; margin: 0 auto; font-family: sans-serif; text-align: center;">У вас нет прав для просмотра этой страницы!</h2>
+            <img src="/img/404/404.jpg" alt="Котик" style="margin: 30px auto; display: block;">
+        {% endif %}
+        </section>
+    </main>
+    {%include 'pre-footer.tmpl'%}
+    <footer>
+        {%include 'footer.tmpl'%}
+    </footer>
+    <style>
+        /* .remove_product_from_database,
+        .edit_product_from_database, */
+        .admin_tool_add_product {
+            width: 100%;
+            display: block;
+            font-family: sans-serif;
+            color: #4a4a4a;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            line-height: 4;
+            border: 5px solid #eaeaea;
+            background: none;
+            margin: 10px;
+        }
+
+        /*.remove_product_from_database:hover,
+        .edit_product_from_database:hover, */
+        .admin_tool_add_product:hover {
+            color: #f16d7f;
+            border: 5px solid #f16d7f;
+        }
+
+        .all_other_column {
+            width: 30%;
+            vertical-align: unset;
+        }
+
+        .all_other_column button{
+            height: 50px;
+            margin: 0 auto;
+        }
+
+        .edit_product_bloc select,
+        .edit_product_bloc input {
+            width: 100%;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!-- begin: header.tmpl --> 
+<div class="header container">
+    <div class="logo"><a href="/IndexMagazin" class="logo_a"><img class="logo_img" src="/img/group-2.png" alt="logo"><p class="logo_text">BRAN<span>D</span></p></a></div>
+    <div class="search-form">
+        <form action="" method="post">
+            <div class="button_browse">
+                <div class="clickable_block">Browse<i class="fa fa-sort-asc" aria-hidden="true"></i></div>
+                <nav class="block_after_click submenu_browse">
+                    <div class="arrow_browse"><img src="/img/little_white_arrow.png"></div>
+                    <ul>
+                        <li><a href="#">Women</a>
+                            <div class="gray_line"></div>
+                            <ul class="submenu_browse_women">
+                                <li><a href="#">Dresses</a></li>
+                                <li><a href="#">Tops</a></li>
+                                <li><a href="#">Sweaters/Knits</a></li>
+                                <li><a href="#">Jackets/Coats</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Denim</a></li>
+                                <li><a href="#">Leggings/Pants</a></li>
+                                <li><a href="#">Skirts/Shorts</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Men</a>
+                            <div class="gray_line"></div>
+                            <ul class="submenu_browse_men">
+                                <li><a href="#">Tees/Tank tops</a></li>
+                                <li><a href="#">Shirts/Polos</a></li>
+                                <li><a href="#">Sweaters</a></li>
+                                <li><a href="#">Sweatshirts/Hoodies</a></li>
+                                <li><a href="#">Blazers</a></li>
+                                <li><a href="#">Jackets/vests</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="text-field">
+                <input type="text" placeholder="Search for Item...">
+                <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+        </form>
+    </div>
+    <div class="button_header">
+        <div class="buttton_basket"><a href="#"><img src="/img/basket_big.png" alt="basket"></a>
+            <!-- <p class="order">2</p> -->
+            <nav class="submenu_basket">
+                <div class="empty_block"></div>
+                <div class="arrow_basket"><img src="/img/little_white_arrow.png"></div>
+                <div class="basket_box">
+
+                {% for good in basket %}
+                    <div class="basket_mini_box basket_mini_box_id-{{good.id}}"><img src="{{good.good_foto}}">
+                        <div class="basket_mini_box_text">
+                            <h5>{{good.good_name}}</h5>
+                            <!-- <a data-id="{{good.id}}" class="remove_product" href="#">
+                                <img src="/img/close.png"></a> -->
+
+                            <button data-id="{{good.id}}" class="remove_product">
+                                <img src="/img/close.png">
+                            </button>
+                            <p class="star">
+                                <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i>
+                            </p>
+                            <p class="product_price">{{good.product_number}} x $<span>{{good.good_price}}</span></p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                    <!-- <div class="basket_mini_box basket_mini_box_id-222"><img src="/img/layer-44.png">
+                        <div class="basket_mini_box_text">
+                            <h5>Rebox Zane</h5><a data-id="222" class="remove_product" href="#"><img src="/img/close.png"></a>
+                            <p class="star"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i></p>
+                            <p class="product_price">1 x $<span>250</span></p>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- <div class="total">
+                    <p>TOTAL</p>
+                    <p>$<span class="basket_total_price">500</span></p>
+                </div> -->
+                <button class="button_clear_all">clear all</button>
+                <a class="button_go-no-cart" href="/MagazinCheckout">Checkout</a>
+                <a class="button_go-no-cart" href="/MagazinShopping_Cart">Go to cart</a></nav>
+        </div>
+
+        {% if isAuth == true %}
+            <div class="my_acc_button">
+                <button class="clickable_block">{{Login}}<!-- My Account --><i class="fa fa-sort-desc" aria-hidden="true"></i></button>
+                <div class="block_after_click my_acc_submenu">
+                    <div class="empty_block"></div>
+                    <div class="container container_background">
+                        <ul>
+                            {% if isAdmin == true %}
+                            <li><a href="/AdminTools" style="color:#f16d7f;">AdminTools</a></li>
+                            {% endif  %}
+                            <li><a href="MagazinProduct">Product</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">User Guide</a></li>
+                            <li><a href="#">Tearms</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li>
+                                <a href="account/logout" style="color:#f16d7f;">Log Out <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="my_acc_button">
+                <button class="clickable_block"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</button>
+                <div class="block_login_panel block_after_click">
+                        <form class="auth_first"  method="post" name="login"><!-- action="IndexMagazin" -->
+                        <label for="login">Login</label><br>
+                        <input 
+                            class="input" 
+                            type="text" 
+                            name="login" 
+                            id="login" 
+                            placeholder="login"><br>
+                        <label for="password">Password</label><br>
+                        <input 
+                            class="input" 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            placeholder="password"><br>
+                            
+                        <!-- <label for="rememberme">Remember me: </label>
+                        <input type="checkbox" name="rememberme" id="rememberme" /><br> -->
+                        
+                        <!-- <input type="submit" name="SubmitLogin" value="Login" /> -->
+                        <button id="buttonLogin" type="submit" name="SubmitLogin" value="Login" formtarget="_parent">Login</button>
+                        <br>
+                        <!-- <input type="submit" name="RegUser" value="Зарегистрироваться"/> -->
+                        <a href="/MagazinCheckout">Register</a>
+                    </form>
+                </div>
+            </div>
+            <style>
+                .block_login_panel {
+                    position: absolute;
+                    top: 0px;
+                    left: -225px;
+                    z-index: 100;
+                    width: 200px;
+                    padding: 10px;
+                    -webkit-border-radius: 5px;
+                        border-radius: 5px;
+                    background-color: #f16d7f;
+                    color: #ffffff;
+                    font-family: sans-serif;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 40px;
+                    letter-spacing: 0.38px;
+                    text-align: center;
+                    text-decoration: none;
+                }
+            </style>
+        {% endif %}
+
+    </div>
+</div>
+<!-- end: header.tmpl -->
