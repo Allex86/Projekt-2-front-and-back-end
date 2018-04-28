@@ -1,0 +1,108 @@
+.carousel {
+  //position: relative;
+  min-width: 1140px;
+  width: 90%;
+  height: 720px;
+  //padding: 10px 40px;
+  //border: 1px solid #CCC;
+  //border-radius: 15px;
+  //background: #eee;
+  margin: 0 auto;
+}
+
+//.big_picture {
+    min-width: 1140px;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background-color: #f7f7f7;
+}
+
+.carousel img {
+  width: 600px;
+  height: 720px;
+  /* по умолчанию inline, в ряде браузеров это даст лишнее пространство вокруг элементов */
+
+  display: block;
+}
+
+//.arrow {
+  position: absolute;
+  top: 60px;
+  padding: 0;
+  //background: #ddd;
+  //border-radius: 15px;
+  border: 1px solid gray;
+  font-size: 24px;
+  line-height: 24px;
+  color: #444;
+  display: block;
+}
+
+.arrow_left, .arro_right {
+    //position: absolute;
+    width: 50px;
+    height: 50px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(33, 33, 33, 0.3);
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    //padding-top: 13px;
+    margin: 365px 0px;
+    border: none;
+    padding: 0;
+}
+
+.arrow:focus {
+  outline: none;
+}
+
+.arrow:hover {
+  background: #ccc;
+  cursor: pointer;
+}
+
+.prev {
+	float: left;
+  	//left: 7px;
+}
+
+.next {
+	float: right;
+  	//right: 7px;
+}
+
+.gallery {
+  width: 600px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.gallery ul {
+  //height: 130px;
+  width: 9999px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: margin-left 250ms;
+  /* remove white-space between inline-block'ed li */
+  /* http://davidwalsh.name/remove-whitespace-inline-block */
+
+  font-size: 0;
+}
+
+.gallery li {
+	//display: flex;
+	float: left;
+	//display: inline-block;
