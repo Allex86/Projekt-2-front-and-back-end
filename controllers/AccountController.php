@@ -14,14 +14,14 @@ use \models\User;
 
 class AccountController extends Controller
 {
-    public function actionLogin( Request $request ) 
+    public function actionLogin(Request $request)
     {
-        if(!empty($request->postParams)){
+        if (!empty($request->postParams)) {
             $modelUser = new User();
 
             $user = $modelUser->getUserByLogin($request->postParams['login']);
 
-            if(!empty($user) && $user['password'] == md5($request->postParams['password'])) {
+            if (!empty($user) && $user['password'] == md5($request->postParams['password'])) {
                 $_SESSION['user'] = $user;
                 echo json_encode(['success' => true]);
             } else {
@@ -30,15 +30,15 @@ class AccountController extends Controller
         }
     }
 
-    public function actionLogout( ) {
+    public function actionLogout()
+    {
         unset($_SESSION['user']);
         $this->redirect('/IndexMagazin');
     }
 
     public function actionRegistrate(Request $request)
     {
-    if(!empty($request->postParams)) {
-
+        if (!empty($request->postParams)) {
             $modelUser = new User();
             
             $values = [
@@ -51,6 +51,5 @@ class AccountController extends Controller
 
             $this->redirect('/IndexMagazin');
         }
-   }
-
+    }
 }

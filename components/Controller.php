@@ -10,10 +10,10 @@ namespace components;
 
 use \components\renderers\IRenderer;
 use components\Request;
-//use components\Model;
+// use components\Model;
 use components\Auth;
 
-abstract class Controller extends Model
+abstract class Controller // extends Model
 {
     private $defaultLayout = 'IndexMagazin';
 
@@ -24,7 +24,7 @@ abstract class Controller extends Model
     protected $breadcrumb = null;
     protected $basket = null;
 
-    protected $renderer = null;// TwigRenderer;/* null; */
+    protected $renderer = null; // TwigRenderer;/* null; */
 
     public function __construct($template, IRenderer $renderer)
     {
@@ -39,24 +39,25 @@ abstract class Controller extends Model
         if (isset($_SESSION['basket'])) {
             $this->basket = $_SESSION['basket'];
         }
-        
     }
 
-    public function render($template, $params = []) {
+    public function render($template, $params = [])
+    {
 
         return $this->renderer->render($template, $params);
     }
 
-    //public function renderWithLayout($template, $params = [], $//layout = null) {
+//    public function renderWithLayout($template, $params = [], $layout = null) {
+//
+//        $content = $this->render($template, $params);
+//
+//        $layout = empty($layout) ? $this->defaultLayout : $layout;
+//
+//        return $this->render($layout , ['content' => $content]);
+//    }
 
-    //    $content = $this->render($template, $params);
-
-    //    $layout = empty($layout) ? $this->defaultLayout : $layout;
-
-    //    return $this->render($layout , ['content' => $content]);
-    //}
-
-    public function redirect($url){
+    public function redirect($url)
+    {
 
         header('Location:' . $url);
         exit;
