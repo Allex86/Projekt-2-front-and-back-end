@@ -10,10 +10,9 @@ namespace components;
 
 use \components\renderers\IRenderer;
 use components\Request;
-// use components\Model;
 use components\Auth;
 
-abstract class Controller // extends Model
+abstract class Controller
 {
     private $defaultLayout = 'IndexMagazin';
 
