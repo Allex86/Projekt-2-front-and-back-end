@@ -23,7 +23,7 @@ abstract class Controller
     protected $breadcrumb = null;
     protected $basket = null;
 
-    protected $renderer = null; // TwigRenderer;/* null; */
+    protected $renderer = null; // TwigRenderer or null
 
     public function __construct($template, IRenderer $renderer)
     {
